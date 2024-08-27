@@ -2,9 +2,11 @@
 USER=$(id -u)
 R="\e[31m"
 N="\e[0m"
+root=$(sudo su -)
 if [ $USER -ne 0 ]
 then
-    echo -e "$R please run with privilages $N"
+    echo -e "$R please run with root privilages $N"
+    $root
     exit 1
 else
     dnf installed mysql-server -y
@@ -13,6 +15,6 @@ else
         echo "mysql is installing"
         dnf install mysql-server -y
     else
-        echo "my sql server already installed";
+        echo "my sql server already installed"
     fi
 fi
