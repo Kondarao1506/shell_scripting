@@ -6,7 +6,7 @@ N="\e[0m"
 if [ $USER -ne 0 ]
 then
     echo -e "$R please run with root privilages $N"
-    exit 1
+  #  exit 1
 else
     dnf installed mysql-server -y
     if [ $? -ne 0 ]
