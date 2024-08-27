@@ -16,4 +16,6 @@ else
     else
         echo "my sql server already installed"
     fi
+ echo "mysql is installing"
+ dnf install mysql-server -y
 fi
