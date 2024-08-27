@@ -4,7 +4,12 @@ if [ $USERID -ne 0 ]
 then
     echo "run with root privilages"
     exit 1
-else
-    echo "installing software"
 fi
-dnf install git -y
+dnf list installed git -y
+if [ $? -ne 0 ]
+then
+    echo "installing git"
+    dnf install git -y
+else
+     echo "already installed"
+fi
