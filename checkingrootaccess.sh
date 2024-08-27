@@ -6,7 +6,7 @@ then
     exit 1
 fi
 
-dnf list installed git -y
+dnf list installed gittt -y
 
 if [ $? -ne 0 ]
 then
