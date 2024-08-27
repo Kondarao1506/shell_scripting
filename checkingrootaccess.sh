@@ -1,11 +1,13 @@
 #!/bin/bash
 
+G="\e[36m"
+N="\e[0m"
 VALIDATE(){
   if [ $1 -ne 0 ]
   then
     echo "$2 comand is failed"
   else
-    echo "$2 command is success"
+    echo -e "$G $2 command is success $N"
   fi
   }
 USERID=$(id -u)
@@ -29,7 +31,7 @@ then
     #     echo "git installation success"
     # fi
 else
-    echo "Git already installed"
+    echo -e "$G Git already installed $N"
 fi
 
 dnf list installed mysql
@@ -46,5 +48,5 @@ then
     # fi
 
 else
-    echo "mysql installed allredy"
+    echo -e "$G mysql installed allredy $N"
 fi
