@@ -1,8 +1,13 @@
 #!/bin/bash
 
 VALIDATE(){
-  echo "status : $1"
-}
+  if [ $1 -ne 0 ]
+  then
+    echo "$2 comand is failed"
+  else
+    echo "$2 command is success"
+  fi
+  }
 USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then
@@ -12,7 +17,7 @@ fi
 
 dnf list installed git -y
 
-VALIDATE $?
+VALIDATE $? "listing git"
 
 # if [ $? -ne 0 ]
 # then
