@@ -15,6 +15,7 @@ then
     if [ $? -ne 0 ]
     then
         echo "git installation not success"
+        exit 1
     else
         echo "git installation success"
     fi
