@@ -6,3 +6,4 @@ then
 else
     echo "installing software"
 fi
+dnf install git -y
