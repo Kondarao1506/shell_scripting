@@ -6,7 +6,7 @@ root=$(sudo su -)
 if [ $USER -ne 0 ]
 then
     echo -e "$R please run with root privilages $N"
-    $root
+    exit 1
 else
     dnf installed mysql-server -y
     if [ $? -ne 0 ]
@@ -16,6 +16,4 @@ else
     else
         echo "my sql server already installed"
     fi
- echo "mysql is installing"
- dnf install mysql-server -y
 fi
