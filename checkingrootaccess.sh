@@ -11,5 +11,5 @@ then
     echo "installing git"
     dnf install git -y
 else
-     echo "already installed"
+    echo "already installed"
 fi
