@@ -1,11 +1,11 @@
 #!/bin/bash
-ROOT_CHECK
+
 USERID=$(id -u)
 R="\e[30m"
 G="\e[32m"
 N="\e[0m"
 
- ROOT_CHECK() {
+ ROOT(){
     if [ $USERID -ne 0 ]
     then
         echo -e "$R RUN WITH ROOT PRIVILIZES $N"
@@ -23,6 +23,7 @@ N="\e[0m"
 
  fi
  }
+ ROOT
 
  #GIT_INSTALL() {
  dnf list installed git -y
