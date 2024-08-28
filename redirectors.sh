@@ -12,18 +12,18 @@ N="\e[0m"
  ROOT(){
     if [ $USERID -ne 0 ]
     then
-        echo -e "$R RUN WITH ROOT PRIVILIZES $N"&>>LOG_FILE
+        echo -e "$R RUN WITH ROOT PRIVILIZES $N"&>>$LOG_FILE
         exit 1
     else
-        echo -e "$G YOU ARE IN ROOT PRIVILAGES $N"&>>LOG_FILE
+        echo -e "$G YOU ARE IN ROOT PRIVILAGES $N"&>>$LOG_FILE
     fi
     }
  VALIDATE(){
     if [ $? -ne 0 ]
  then
-    echo "$2 is failed to install"&>>LOG_FILE
+    echo "$2 is failed to install"&>>$LOG_FILE
  else
-    echo "$2 ALREADY installed succefully"&>>LOG_FILE
+    echo "$2 ALREADY installed succefully"&>>$LOG_FILE
 
  fi
  }
@@ -41,13 +41,13 @@ N="\e[0m"
  
 for package in $@
   do
-    dnf list installed $package -y &>>LOG_FILE
+    dnf list installed $package -y &>>$LOG_FILE
     if [ $? -ne 0 ]
     then    
         echo "$package is installing"
-        dnf install $package -y &>>LOG_FILE
+        dnf install $package -y &>>$LOG_FILE
         VALIDATE $? "$package"
     else
-        echo "$package installed already" &>>LOG_FILE
+        echo "$package installed already" &>>$LOG_FILE
     fi
   done
