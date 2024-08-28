@@ -27,7 +27,18 @@ N="\e[0m"
 
  fi
  }
+ USAGE(){
+    echo "please eneter arguments like sudo sh redirectors.sh git mysql"
+    exit 1
+ }
  ROOT
+
+    if [ $# -eq 0 ]
+    then
+        
+        USAGE
+    fi
+ 
 for package in $@
   do
     dnf list installed $package -y &>>LOG_FILE
