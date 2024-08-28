@@ -24,18 +24,18 @@ N="\e[0m"
  fi
  }
 
- GIT_INSTALL() {
+ #GIT_INSTALL() {
  dnf list installed git -y
  if [ $? -ne 0 ]
  then
     dnf install git -y
     VALIDATE $? "GIT STATUS"
  fi
- }
+ #}
  
 
- SQL_SERVER()
- {
+#  SQL_SERVER()
+#  {
     dnf list installed mysql-server -y
     if [ $? -ne 0 ]
     then
@@ -43,14 +43,14 @@ N="\e[0m"
         VALIDATE $? "my-sql STATUS"
         
     fi
- }
+ #}
  
 
- ROOT_CHECK
+#  ROOT_CHECK
 
- GIT_INSTALL
+#  GIT_INSTALL
 
- SQL_SERVER
+#  SQL_SERVER
 
 
 
