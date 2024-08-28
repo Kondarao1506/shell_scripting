@@ -29,9 +29,10 @@ N="\e[0m"
  if [ $? -ne 0 ]
  then
     dnf install git -y
+    VALIDATE $? "GIT STATUS"
  fi
  }
- VALIDATE $? "GIT STATUS"
+ 
 
  SQL_SERVER()
  {
@@ -39,10 +40,11 @@ N="\e[0m"
     if [ $? -ne 0 ]
     then
         dnf install mysql-server -y
+        VALIDATE $? "my-sql STATUS"
         
     fi
  }
- VALIDATE $? "my-sql STATUS"
+ 
 
  ROOT_CHECK
 
