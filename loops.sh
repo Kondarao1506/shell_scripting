@@ -30,6 +30,8 @@ N="\e[0m"
  then
     dnf install git -y
     VALIDATE $? "GIT STATUS"
+ else
+    echo -e "$G Git already installed $N"
  fi
  #}
  
@@ -41,7 +43,8 @@ N="\e[0m"
     then
         dnf install mysql-server -y
         VALIDATE $? "my-sql STATUS"
-        
+    else
+        echo -e "$G mysql installed allredy $N" 
     fi
  #}
  
