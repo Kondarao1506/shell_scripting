@@ -21,9 +21,9 @@ N="\e[0m"
  VALIDATE(){
     if [ $? -ne 0 ]
  then
-    echo "$2 $R FAILED $N" | tee -a $LOG_FILE # no need & if we tee -a it will append atometically
+    echo -e "$2 $R FAILED $N" | tee -a $LOG_FILE # no need & if we tee -a it will append atometically
  else
-    echo "$2 $G SUCCESS $N" | tee -a $LOG_FILE
+    echo -e "$2 $G SUCCESS $N" | tee -a $LOG_FILE
 
  fi
  }
