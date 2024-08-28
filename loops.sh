@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ROOT_CHECK
 USERID=$(id -u)
 R="\e[30m"
 G="\e[32m"
@@ -49,7 +49,7 @@ N="\e[0m"
  #}
  
 
-#  ROOT_CHECK
+  ROOT_CHECK
 
 #  GIT_INSTALL
 
