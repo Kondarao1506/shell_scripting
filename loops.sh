@@ -15,7 +15,7 @@ N="\e[0m"
     fi
     }
 
- GITINSTALL() {
+ GIT_INSTALL() {
  dnf list installed git -y
  if [ $? -ne 0 ]
  then
@@ -27,9 +27,9 @@ N="\e[0m"
  fi
  }
 
- ROOT_CHECK()
+ ROOT_CHECK
 
- GITINSTALL() 
+ GIT_INSTALL
 
 
 
