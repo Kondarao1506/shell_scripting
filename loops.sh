@@ -24,7 +24,7 @@ GIT_INTALL(){
  else
     echo "git ALREADY installed succefully"
 
-fi
+ fi
 }
 
 ROOT_CHECK()
