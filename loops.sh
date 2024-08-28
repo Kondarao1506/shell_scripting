@@ -5,7 +5,7 @@ R="\e[30m"
 G="\e[32m"
 N="\e[0m"
 
-ROOT_CHECK() {
+ ROOT_CHECK() {
     if [ $USERID -ne 0 ]
     then
         echo -e "$R RUN WITH ROOT PRIVILIZES $N"
@@ -15,7 +15,7 @@ ROOT_CHECK() {
     fi
     }
 
-GIT_INTALL() {
+ GITINSTALL() {
  dnf list installed git -y
  if [ $? -ne 0 ]
  then
@@ -29,7 +29,7 @@ GIT_INTALL() {
 
  ROOT_CHECK()
 
- GIT_INTALL() 
+ GITINSTALL() 
 
 
 
