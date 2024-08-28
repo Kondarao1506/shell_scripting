@@ -12,18 +12,18 @@ N="\e[0m"
  ROOT(){
     if [ $USERID -ne 0 ]
     then
-        echo -e "$R RUN WITH ROOT PRIVILIZES $N"&>>$LOG_FILE
+        echo -e "$R RUN WITH ROOT PRIVILIZES $N" | tee -a &>>$LOG_FILE
         exit 1
     else
-        echo -e "$G YOU ARE IN ROOT PRIVILAGES $N"&>>$LOG_FILE
+        echo -e "$G YOU ARE IN ROOT PRIVILAGES $N" | tee -a &>>$LOG_FILE
     fi
     }
  VALIDATE(){
     if [ $? -ne 0 ]
  then
-    echo "$2 is failed to install"&>>$LOG_FILE
+    echo "$2 $R FAILED $N" | tee -a &>>$LOG_FILE
  else
-    echo "$2 ALREADY installed succefully"&>>$LOG_FILE
+    echo "$2 $G SUCCESS $N" | tee -a &>>$LOG_FILE
 
  fi
  }
