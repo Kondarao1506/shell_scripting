@@ -14,22 +14,41 @@ N="\e[0m"
         echo -e "$G YOU ARE IN ROOT PRIVILAGES $N"
     fi
     }
+ VALIDATE(){
+    if [ $? -ne 0 ]
+ then
+    echo "$2 is being installing"
+ else
+    echo "$2 ALREADY installed succefully"
+
+ fi
+ }
 
  GIT_INSTALL() {
  dnf list installed git -y
  if [ $? -ne 0 ]
  then
-    echo "git is being installing"
     dnf install git -y
- else
-    echo "git ALREADY installed succefully"
-
  fi
  }
+ VALIDATE $? "GIT STATUS"
+
+ SQL_SERVER()
+ {
+    dnf list installed mysql-server -y
+    if [ $? -ne 0 ]
+    then
+        dnf install mysql-server -y
+        
+    fi
+ }
+ VALIDATE $? "my-sql STATUS"
 
  ROOT_CHECK
 
  GIT_INSTALL
+
+ SQL_SERVER
 
 
 
