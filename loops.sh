@@ -17,7 +17,7 @@ N="\e[0m"
  VALIDATE(){
     if [ $? -ne 0 ]
  then
-    echo "$2 is being installing"
+    echo "$2 is failed to install"
  else
     echo "$2 ALREADY installed succefully"
 
@@ -25,33 +25,45 @@ N="\e[0m"
  }
  ROOT
 
- #GIT_INSTALL() {
- dnf list installed git -y
- if [ $? -ne 0 ]
- then
-    dnf install git -y
-    VALIDATE $? "GIT STATUS"
- else
-    echo -e "$G Git already installed $N"
- fi
+#  #GIT_INSTALL() {
+#  dnf list installed git -y
+#  if [ $? -ne 0 ]
+#  then
+#     dnf install git -y
+#     VALIDATE $? "GIT STATUS"
+#  else
+#     echo -e "$G Git already installed $N"
+#  fi
  #}
  
 
-#  SQL_SERVER()
-#  {
-    dnf list installed mysql-server -y
+# #  SQL_SERVER()
+# #  {
+#     dnf list installed mysql-server -y
+#     if [ $? -ne 0 ]
+#     then
+#         dnf install mysql-server -y
+#         VALIDATE $? "my-sql STATUS"
+#     else
+#         echo -e "$G mysql installed allredy $N" 
+#     fi
+#  #}
+ 
+
+  for package in $@
+  do
+    dnf list installed $package -y
     if [ $? -ne 0 ]
-    then
-        dnf install mysql-server -y
-        VALIDATE $? "my-sql STATUS"
+    then    
+        echo "$package is installing"
+        dnf install $package -y
+        VALIDATE $? "$package"
     else
-        echo -e "$G mysql installed allredy $N" 
+        echo "$package installed already"
     fi
- #}
- 
+  done
 
-  ROOT_CHECK
-
+        
 #  GIT_INSTALL
 
 #  SQL_SERVER
