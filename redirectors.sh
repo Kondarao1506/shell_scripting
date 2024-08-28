@@ -12,18 +12,18 @@ N="\e[0m"
  ROOT(){
     if [ $USERID -ne 0 ]
     then
-        echo -e "$R RUN WITH ROOT PRIVILIZES $N" | tee -a >>$LOG_FILE
+        echo -e "$R RUN WITH ROOT PRIVILIZES $N" | tee -a $LOG_FILE
         exit 1
     else
-        echo -e "$G YOU ARE IN ROOT PRIVILAGES $N" | tee -a >>$LOG_FILE
+        echo -e "$G YOU ARE IN ROOT PRIVILAGES $N" | tee -a $LOG_FILE
     fi
     }
  VALIDATE(){
     if [ $? -ne 0 ]
  then
-    echo "$2 $R FAILED $N" | tee -a >>$LOG_FILE # no need & if we tee -a it will append atometically
+    echo "$2 $R FAILED $N" | tee -a $LOG_FILE # no need & if we tee -a it will append atometically
  else
-    echo "$2 $G SUCCESS $N" | tee -a >>$LOG_FILE
+    echo "$2 $G SUCCESS $N" | tee -a $LOG_FILE
 
  fi
  }
@@ -44,10 +44,10 @@ for package in $@
     dnf list installed $package -y &>>$LOG_FILE
     if [ $? -ne 0 ]
     then    
-        echo "$package is installing" | tee -a >>$LOG_FILE
+        echo "$package is installing" | tee -a $LOG_FILE
         dnf install $package -y &>>$LOG_FILE
         VALIDATE $? "$package"
     else
-        echo "$package installed already" | tee -a >>$LOG_FILE
+        echo "$package installed already" | tee -a $LOG_FILE
     fi
   done
