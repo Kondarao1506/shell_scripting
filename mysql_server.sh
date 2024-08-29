@@ -14,10 +14,10 @@ N="\e[0m"
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo -e "$2 INSTALLATION : $R FAILED $N"
+        echo -e "$2  : $R FAILED $N"
         exit 1
     else
-        echo -e "$2 INSTALLATION : $G SUCCESS $N"
+        echo -e "$2  : $G SUCCESS $N"
     fi
 }
 #getting user id
@@ -33,23 +33,24 @@ if [ $? -ne 0 ]
 then
     echo -e "MYSQL is not installed...$Y going to install $N" | tee -a $FILE_LOG
     dnf install mysql-server -y &>>$FILE_LOG
-    VALIDATE $? "MYSQL"
+    VALIDATE $? "MYSQL installation"
 else
     echo -e "$G MYSQL is already installed... $N"  | tee -a $FILE_LOG
 fi
 
 systemctl enable mysqld 
-VALIDATE $? "MYSQL_enable"
+VALIDATE $? "MYSQL_enabled"
 
 systemctl start mysqld
-VALIDATE $? "started"
+VALIDATE $? "MYSQL started"
 
-mysql -h 172.31.84.7 -u root -pExpenseApp@1 -e 'show databases;' | tee -a $FILE_LOG
+mysql -h 172.31.84.7 -u root -pExpenseApp@1 -e 'show databases;' &>>$FILE_LOG
 
 if [ $? -ne 0 ]
 then
     echo -e "$Y PASSWORD GOING TO SETTING $N" | tee -a $FILE_LOG
     mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$FILE_LOG
+    VALIDATE $? "Setting up root password"
 else
     echo -e "My sql-server established :-$G succesfully $N" | tee -a $FILE_LOG
 fi
