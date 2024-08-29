@@ -18,6 +18,7 @@ VALIDATE(){
         exit 1
     else
         echo -e "$2 INSTALLATION : $G SUCCESS $N"
+    fi
 }
 #getting user id
 USERID=$(id -u)
