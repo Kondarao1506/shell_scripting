@@ -38,10 +38,10 @@ else
     echo -e "$G MYSQL is already installed... $N" | tee -a >>$FILE_LOG
 fi
 
-dnf systemctl enable mysqld -y
+systemctl enable mysqld -y
 VALIDATE $? "MYSQL_enable"
 
-dnf systemctl start mysqld -y
+systemctl start mysqld -y
 VALIDATE $? "started"
 
 mysql -h 54.210.233.152 -u root -p ExpenseApp@1 -e show databases | tee -a >>$FILE_LOG
