@@ -6,9 +6,9 @@ TIME_STAMP=$(date +%Y-%m-%d-%H-%M-%S)
 FILE_LOG=$FOLDER_PATH/$SCRIPT_NAME-$TIME_STAMP.log
 mkdir -p $FOLDER_PATH
 #SETTING COLLLORS
-R="\e[32m"
-G="\e[33m"
-Y="\e[34m"
+G="\e[32m"
+Y="\e[33m"
+R="\e[31m"
 N="\e[0m"
 
 VALIDATE(){
