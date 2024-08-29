@@ -31,11 +31,11 @@ fi
 dnf list installed mysql-server -y  &>>$FILE_LOG
 if [ $? -ne 0 ]
 then
-    echo -e "MYSQL is not installed...$Y going to install $N" | tee -a >>$FILE_LOG
+    echo -e "MYSQL is not installed...$Y going to install $N" #| tee -a >>$FILE_LOG
     dnf install mysql-server -y &>>$FILE_LOG
     VALIDATE $? "MYSQL"
 else
-    echo -e "$G MYSQL is already installed... $N" | tee -a >>$FILE_LOG
+    echo -e "$G MYSQL is already installed... $N" # | tee -a >>$FILE_LOG
 fi
 
 systemctl enable mysqld 
