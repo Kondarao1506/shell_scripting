@@ -54,8 +54,8 @@ then
 else
     echo -e "My sql-server established :-$G succesfully $N" | tee -a $FILE_LOG
 fi
-sudo mysql
-show databases;
+# sudo mysql
+# show databases;
 
 
 
