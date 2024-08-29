@@ -44,7 +44,7 @@ VALIDATE $? "MYSQL_enable"
 systemctl start mysqld
 VALIDATE $? "started"
 
-mysql -h 54.210.233.152 -u root -p ExpenseApp@1 -e show databases | tee -a >>$FILE_LOG
+mysql -h 172.31.84.7 -u root -pExpenseApp@1 -e show databases | tee -a >>$FILE_LOG
 
 if [ $? -ne 0 ]
 then
