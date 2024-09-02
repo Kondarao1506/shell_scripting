@@ -25,9 +25,11 @@ fi
 
 FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
 
+echo "files : $FILES"
+
 if [ -n $FILES ]
 then
-    echo "there are   files found older than $DAYS"
+    echo "there are  files found older than $DAYS"
 else
     echo "there are no files found above $DAYS"
 fi
