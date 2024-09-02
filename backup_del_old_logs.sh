@@ -3,7 +3,7 @@ SOURCE_DIR=$1
 DEST_FILE=$2
 DAYS=${3:-14}
 
-USAGE{
+USAGE(){
 echo "you must paas argumets like source file path and destination file path"
 }
 
