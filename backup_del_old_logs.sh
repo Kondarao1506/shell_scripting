@@ -27,7 +27,7 @@ FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
 
 echo "files : $FILES"
 
-if [ ! -z $FILES ]
+if [ -z $FILES ]
 then
     echo "there are no files found above $DAYS"
 else
