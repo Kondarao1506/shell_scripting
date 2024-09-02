@@ -33,6 +33,7 @@ then
 else
     echo "OLDER THAN $DAYS DAYS FILES FOUND "
     #ZIP_FILE="$DEST_FILE/backuplogs-$TIME_STAMP.zip"
+    ZIP_FILE=""
     find ${SOURCE_DIR} -name "*.log" -mtime +14 | zip $ZIP_FILE -@
     if [ -f $ZIP_FILE ]
     then
