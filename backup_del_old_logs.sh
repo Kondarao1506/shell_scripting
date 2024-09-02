@@ -34,9 +34,20 @@ else
     echo "OLDER THAN $DAYS DAYS FILES FOUND "
     ZIP_FILE="$DEST_FILE/backuplogs-$TIME_STAMP.zip"
     find ${SOURCE_DIR} -name "*.log" -mtime +14 | zip $ZIP_FILE -@
-fi
-while IFS= read -r file
-do
-    echo "files :- $file"
+    if [ -f $ZIP_FILE ]
+    then
+        echo "succesfully zipped"
+        while IFS= read -r file
+        do
+            echo "files :- $file"
+            echo "deleting the file"
+            rm -rf $file
 
-done <<< $FILES
+        done <<< $FILES
+    else
+        echo "zipping failed"
+    fi
+fi
+
+
+
