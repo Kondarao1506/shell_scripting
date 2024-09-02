@@ -13,23 +13,23 @@ then
     exit 1
 fi
 
-if [ !-d $SOURCE_DIR ]
+if [ ! -d $SOURCE_DIR ]
 then
     echo "$SOURCE_DIR : not exist"
 fi
  
-if [ !-d $DEST_FILE ]
+if [ ! -d $DEST_FILE ]
 then
     echo "$DEST_FILE : not exist"
 fi
 
 FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 
-if [!-f $FILES]
+if [! -f $FILES]
 then
     echo "there are no  files found above $DAYS"
     exit 1
 else
-    echo "backup files are found"
+    echo "there are   files found above $DAYS"
 fi
 
