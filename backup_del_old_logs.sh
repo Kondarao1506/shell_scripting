@@ -32,14 +32,11 @@ then
     echo "there are no files found above $DAYS"
 else
     echo "OLDER THAN $DAYS DAYS FILES FOUND "
-    ZIP_FILE=$DEST_FILE/backuplogs-$TIME_STAMP.zip
-    ZIP_FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14) | zip $ZIP_FILE -@
+    ZIP_FILE="$DEST_FILE/backuplogs-$TIME_STAMP.zip"
+    find ${SOURCE_DIR} -name "*.log" -mtime +14) | zip $ZIP_FILE -@
 fi
 while IFS= read -r file
 do
     echo "files :- $file"
 
-
-
-
-done <<< $ZIP_FILES
+done <<< $FILES
