@@ -23,12 +23,11 @@ then
     echo "$DEST_FILE : not exist"
 fi
 
-FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
+FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
 
 if [ -n $FILES ]
 then
     echo "there are   files found older than $DAYS"
-    exit 1
 else
     echo "there are no files found above $DAYS"
 fi
